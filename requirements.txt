@@ -1,0 +1,13 @@
+streamlit
+pdfplumber
+pymupdf
+pytesseract
+pdf2image
+pillow
+pandas
+sentence-transformers
+faiss-cpu
+openai
+python-dotenv
+camelot-py[cv]
+tabula-py

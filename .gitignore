@@ -1,0 +1,30 @@
+# --- ENV & SECRETS ---
+rag_env/
+venv/
+.env
+
+# --- DATA ARTIFACTS (big / generated) ---
+data/chunks.jsonl
+data/chunks_metadata.jsonl
+data/embeddings_text.faiss
+
+# If you DON'T want PDFs in repo, keep these lines.
+# If you DO want to upload PDFs, delete these 2 lines.
+data/multi-modal_rag_qa_assignment.pdf
+data/qatar_test_doc.pdf
+
+# --- TESSERACT (installed binary folder) ---
+Tesseract-OCR/
+
+# --- PYTHON CACHE ---
+__pycache__/
+*.pyc
+*.pyo
+
+# --- VSCODE & MISC ---
+.vscode/
+.streamlit/
+*.log
+*.tmp
+
+data/images/
