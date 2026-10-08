@@ -1,0 +1,15 @@
+-- ===== Calendar (Modeling > New table) =====
+DimDate = CALENDAR ( MIN ( fact_commits[commit_date] ), MAX ( fact_commits[commit_date] ) )
+-- then add columns: Month = FORMAT([Date],"yyyy-MM") ; mark as date table.
+
+-- ===== Repo activity =====
+Commits          = COUNTROWS ( fact_commits )
+Active Days      = DISTINCTCOUNT ( fact_commits[commit_date] )
+Commits / Active Day = DIVIDE ( [Commits], [Active Days] )
+Lines Added      = SUM ( fact_commits[insertions] )
+Lines Deleted    = SUM ( fact_commits[deletions] )
+Churn Ratio      = DIVIDE ( [Lines Deleted], [Lines Added] )
+Commits Last 30d =
+    CALCULATE ( [Commits], DATESINPERIOD ( DimDate[Date], MAX ( DimDate[Date] ), -30, DAY ) )
+Repo Lines (current) = SUM ( fact_repo_language[lines] )
+
